@@ -1,23 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title></title>
-<link type="text/css" rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/redmond/jquery-ui.css" />
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js" type="text/javascript"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.js" type="text/javascript"></script>
-<script src="demos/src/jquery.search.js" type="text/javascript"></script>
-
+	<meta charset="UTF-8" />
+	<title>jQuery UI Autocomplete Remote JSONP datasource demo</title>
+	<link type="text/css" href="../../themes/base/jquery.ui.all.css" rel="stylesheet" />
+	<script type="text/javascript" src="../../jquery-1.4.2.js"></script>
+	<script type="text/javascript" src="../../ui/jquery.ui.core.js"></script>
+	<script type="text/javascript" src="../../ui/jquery.ui.widget.js"></script>
+	<script type="text/javascript" src="../../ui/jquery.ui.position.js"></script>
+	<script type="text/javascript" src="../../ui/jquery.ui.autocomplete.js"></script>
+	<link type="text/css" href="../demos.css" rel="stylesheet" />
 	<script type="text/javascript">
-
 	$(function() {
 		function log(message) {
 			$("<div/>").text(message).prependTo("#log");
 			$("#log").attr("scrollTop", 0);
 		}
-
-                    
-
+		
 		$("#city").autocomplete({
 			source: function(request, response) {
 				$.ajax({
@@ -50,25 +49,16 @@
 				$(this).removeClass("ui-corner-top").addClass("ui-corner-all");
 			}
 		});
-
-               var $searcher = $("<div />").search(
-                        {source: ['cities' , 'erty', 'dsfsr', 'tiefe' , 'ertegtit' , 'rtre' , 'itreu'],
-                        searchMethod : '_contains'}
-                     );
-                $("#tyuiop").click(function(){
-                   var resultat = $searcher.search("dosearch", 'it');
-                });
-
 	});
 	</script>
+	<style>
+		.ui-autocomplete-loading { background: url(indicator.gif) no-repeat right; }
+		#city { width: 25em; }
+	</style>
 </head>
 <body>
 
- 
-
-
 <div class="demo">
-<input type="button" id="tyuiop" value="Open with default configuration" />
 
 <div class="ui-widget">
 	<label for="city">Your city: </label>
@@ -88,8 +78,9 @@
 The Autocomplete widgets provides suggestions while you type into the field. Here the suggestions are cities, displayed when at least two characters are entered into the field.
 </p>
 <p>
-In this case, the datasource is the <a href="http://geonames.org">geonames.org webservice</a>. While only the city name itself ends up in the input after selecting an element, more info is displayed in the suggestions to help find the right entry. That data is also available in callbacks, as illustrated by the Result area below the input.
+In this case, the datasource is the <a href="http://geonames.org">geonames.org webservice</a>. While only the city name itself ends up in the input after selecting an element, more info is displayed in the suggestions to help find the right entry. That data is also available in callbacks, as illustrated by the Result area below the input. 
 </p>
 </div><!-- End demo-description -->
+
 </body>
 </html>
